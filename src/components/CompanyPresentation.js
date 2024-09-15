@@ -1,8 +1,10 @@
 import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 
 const CompanyPresentation = () => {
   const canvasRef = useRef(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -40,11 +42,17 @@ const CompanyPresentation = () => {
     }
   }, []);
 
+  const handleServiceClick = (service) => {
+    navigate(`/contacto?servicio=${encodeURIComponent(service)}`);
+  };
+
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-purple-900 to-black text-white py-20">
+    <section id="servicios" className="relative overflow-hidden bg-gradient-to-br from-purple-900 to-black text-white py-20">
       <canvas ref={canvasRef} className="absolute inset-0 w-full h-full opacity-20" />
+      <div className="absolute inset-0 bg-black opacity-50"></div>
       <div className="container mx-auto px-4 relative z-10">
         <motion.h2 
+          id="servicios"
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -81,7 +89,8 @@ const CompanyPresentation = () => {
                 <motion.li 
                   key={index}
                   whileHover={{ scale: 1.05, color: '#B794F4' }}
-                  className="flex items-center bg-purple-800 bg-opacity-30 p-3 rounded-lg"
+                  className="flex items-center bg-purple-800 bg-opacity-30 p-3 rounded-lg cursor-pointer"
+                  onClick={() => handleServiceClick(service)}
                 >
                   <span className="mr-2 text-purple-300">&#9733;</span>
                   {service}
