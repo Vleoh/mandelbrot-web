@@ -28,7 +28,7 @@ const Contacto = () => {
     e.preventDefault();
     setStatus('Enviando...');
     try {
-      const response = await fetch('mandelbrot-back-jti72sv26-vleohs-projects.vercel.app/api/enviar-contacto', {
+      const response = await fetch('https://mandelbrot-back-jti72sv26-vleohs-projects.vercel.app/api/enviar-contacto', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -37,14 +37,20 @@ const Contacto = () => {
       });
       
       if (response.ok) {
-        setStatus('Mensaje enviado con éxito');
+        setStatus(`Mensaje enviado con éxito. Gracias por contactarnos, ${formData.nombre}!`);
         setFormData({ nombre: '', email: '', servicio: '', mensaje: '' });
+        // Mantener el parámetro de servicio en la URL si existe
+        const params = new URLSearchParams(location.search);
+        const servicioParam = params.get('servicio');
+        if (servicioParam) {
+          setFormData(prev => ({ ...prev, servicio: decodeURIComponent(servicioParam) }));
+        }
       } else {
-        setStatus('Error al enviar el mensaje');
+        setStatus('Error al enviar el mensaje. Por favor, intenta de nuevo.');
       }
     } catch (error) {
       console.error('Error:', error);
-      setStatus('Error al enviar el mensaje');
+      setStatus('Error de conexión. Por favor, verifica tu conexión a internet e intenta de nuevo.');
     }
   };
 
