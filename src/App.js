@@ -6,7 +6,6 @@ import ServicesCarousel from './components/ServicesCarousel';
 import Brands from './components/Brands';
 import Contacto from './components/Contact';
 import Footer from './components/Footer';
-import Testimonials from './components/Testimonials';
 
 // App.js
 const App = () => {
@@ -22,22 +21,19 @@ const App = () => {
   }, [location]);
 
   return (
-    <div className="App font-sans">
+    <div className="App">
       <Header />
-      <main>
-        <Routes>
-          <Route path="/" element={
-            <>
-              <ServicesCarousel />
-              <CompanyPresentation />
-              <Brands />
-              <Testimonials />
-            </>
-          } />
-          <Route path="/contacto" element={<Contacto />} />
-          {/* Agrega aquí más rutas según sea necesario */}
-        </Routes>
-      </main>
+      <Routes>
+        <Route path="/" element={
+          <>
+            <ServicesCarousel />
+            <CompanyPresentation />
+            <Brands />
+          </>
+        } />
+        <Route path="/contacto" element={<Contacto />} />
+        {/* Agrega aquí más rutas según sea necesario */}
+      </Routes>
       <Footer />
     </div>
   );

@@ -22,7 +22,7 @@ const Services = () => (
     <div className="service mb-8">
       <h3 className="text-2xl font-semibold text-purple-800">Software de Gestión de Turnos</h3>
       <p className="text-lg">Soluciones completamente integradas para la gestión de citas.</p>
-      <img src="schedule.jpg" alt="Gestión de Turnos" className="w-full mt-4 rounded-md" />
+      <img src="schedule.png" alt="Gestión de Turnos" className="w-full mt-4 rounded-md" />
     </div>
   </section>
 );

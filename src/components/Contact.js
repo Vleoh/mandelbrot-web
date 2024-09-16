@@ -1,73 +1,50 @@
-import React, { useState } from 'react';
-// components/Contact.js
+import React, { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 
-const Contact = () => {
-  const [formData, setFormData] = useState({
-    nombre: '',
-    email: '',
-    mensaje: ''
-  });
+const Contacto = () => {
+  const [servicio, setServicio] = useState('');
+  const location = useLocation();
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const response = await fetch('http://localhost:3000/api/enviar-contacto', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-      if (response.ok) {
-        alert('Mensaje enviado con éxito');
-        setFormData({ nombre: '', email: '', mensaje: '' });
-      } else {
-        alert('Error al enviar el mensaje');
-      }
-    } catch (error) {
-      console.error('Error:', error);
-      alert('Error al enviar el mensaje');
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const servicioParam = params.get('servicio');
+    if (servicioParam) {
+      setServicio(decodeURIComponent(servicioParam));
     }
-  };
+  }, [location]);
 
   return (
-    <section id="contact" className="py-16 bg-white text-center">
-      <h2 className="text-4xl font-bold text-purple-800 mb-8">Hablemos</h2>
-      <p className="text-lg text-gray-800 mb-6">Contáctanos para discutir cómo podemos ayudarte a optimizar tu negocio.</p>
-      <form onSubmit={handleSubmit} className="flex flex-col items-center gap-4">
-        <input
-          type="text"
-          name="nombre"
-          value={formData.nombre}
-          onChange={handleChange}
-          placeholder="Tu nombre"
-          required
-          className="w-full max-w-md p-2 border-2 border-purple-800 rounded-md"
-        />
-        <input
-          type="email"
-          name="email"
-          value={formData.email}
-          onChange={handleChange}
-          placeholder="Tu email"
-          required
-          className="w-full max-w-md p-2 border-2 border-purple-800 rounded-md"
-        />
-        <textarea
-          name="mensaje"
-          value={formData.mensaje}
-          onChange={handleChange}
-          placeholder="Tu mensaje"
-          className="w-full max-w-md p-2 border-2 border-purple-800 rounded-md h-32"
-        ></textarea>
-        <button type="submit" className="bg-purple-800 text-white px-6 py-2 rounded-md hover:bg-blue-400">Enviar</button>
+    <div className="container mx-auto px-4 py-8">
+      <h1 className="text-3xl font-bold mb-6">Contacto</h1>
+      <form className="max-w-lg mx-auto">
+        <div className="mb-4">
+          <label htmlFor="nombre" className="block mb-2">Nombre</label>
+          <input type="text" id="nombre" className="w-full p-2 border rounded" />
+        </div>
+        <div className="mb-4">
+          <label htmlFor="email" className="block mb-2">Email</label>
+          <input type="email" id="email" className="w-full p-2 border rounded" />
+        </div>
+        <div className="mb-4">
+          <label htmlFor="servicio" className="block mb-2">Servicio</label>
+          <input 
+            type="text" 
+            id="servicio" 
+            value={servicio} 
+            onChange={(e) => setServicio(e.target.value)}
+            className="w-full p-2 border rounded" 
+          />
+        </div>
+        <div className="mb-4">
+          <label htmlFor="mensaje" className="block mb-2">Mensaje</label>
+          <textarea id="mensaje" className="w-full p-2 border rounded" rows="4"></textarea>
+        </div>
+        <button type="submit" className="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">
+          Enviar
+        </button>
       </form>
-    </section>
+    </div>
   );
 };
 
-export default Contact;
+export default Contacto;
