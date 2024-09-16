@@ -18,8 +18,7 @@ const Header = () => {
     <header className="bg-purple-900 text-white">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         <Link to="/" className="text-2xl font-bold">
-          {/* Reemplaza 'Logo' con tu componente de logo o imagen */}
-          Logo
+          <img src="logo.png" alt="Mandelbrot Logo" className="w-10 h-10" />
         </Link>
         <nav>
           <ul className="flex space-x-4">
