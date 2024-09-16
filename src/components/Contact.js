@@ -40,12 +40,14 @@ const Contacto = () => {
         setStatus(`Mensaje enviado con éxito. Gracias por contactarnos, ${formData.nombre}!`);
         setFormData({ nombre: '', email: '', servicio: '', mensaje: '' });
         // Mantener el parámetro de servicio en la URL si existe
-        const params = new URLSearchParams(location.search);
+        const params = new URLSearchParams(window.location.search);
         const servicioParam = params.get('servicio');
         if (servicioParam) {
           setFormData(prev => ({ ...prev, servicio: decodeURIComponent(servicioParam) }));
         }
       } else {
+        const errorData = await response.text();
+        console.error('Error response:', errorData);
         setStatus('Error al enviar el mensaje. Por favor, intenta de nuevo.');
       }
     } catch (error) {
