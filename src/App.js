@@ -1,25 +1,46 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from 'react';
+import { Routes, Route, useLocation } from 'react-router-dom';
+import Header from './components/Header';
+import CompanyPresentation from './components/CompanyPresentation';
+import ServicesCarousel from './components/ServicesCarousel';
+import Brands from './components/Brands';
+import Contacto from './components/Contact';
+import Footer from './components/Footer';
+import Testimonials from './components/Testimonials';
 
-function App() {
+// App.js
+const App = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.state && location.state.scrollTo) {
+      const element = document.getElementById(location.state.scrollTo);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  }, [location]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App font-sans">
+      <Header />
+      <main>
+        <Routes>
+          <Route path="/" element={
+            <>
+              <ServicesCarousel />
+              <CompanyPresentation />
+              <Brands />
+              <Testimonials />
+            </>
+          } />
+          <Route path="/contacto" element={<Contacto />} />
+          {/* Agrega aquí más rutas según sea necesario */}
+        </Routes>
+      </main>
+      <Footer />
     </div>
   );
-}
+};
 
 export default App;
