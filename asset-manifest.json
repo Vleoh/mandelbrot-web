@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/Vleoh/mandelbrot-web/static/css/main.40ae9731.css",
-    "main.js": "/Vleoh/mandelbrot-web/static/js/main.d38879de.js",
-    "static/js/453.be744c22.chunk.js": "/Vleoh/mandelbrot-web/static/js/453.be744c22.chunk.js",
-    "index.html": "/Vleoh/mandelbrot-web/index.html",
-    "main.40ae9731.css.map": "/Vleoh/mandelbrot-web/static/css/main.40ae9731.css.map",
-    "main.d38879de.js.map": "/Vleoh/mandelbrot-web/static/js/main.d38879de.js.map",
-    "453.be744c22.chunk.js.map": "/Vleoh/mandelbrot-web/static/js/453.be744c22.chunk.js.map"
+    "main.css": "/static/css/main.40ae9731.css",
+    "main.js": "/static/js/main.13f95af8.js",
+    "static/js/453.be744c22.chunk.js": "/static/js/453.be744c22.chunk.js",
+    "index.html": "/index.html",
+    "main.40ae9731.css.map": "/static/css/main.40ae9731.css.map",
+    "main.13f95af8.js.map": "/static/js/main.13f95af8.js.map",
+    "453.be744c22.chunk.js.map": "/static/js/453.be744c22.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.40ae9731.css",
-    "static/js/main.d38879de.js"
+    "static/js/main.13f95af8.js"
   ]
 }
