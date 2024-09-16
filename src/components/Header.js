@@ -17,8 +17,8 @@ const Header = () => {
   return (
     <header className="bg-purple-900 text-white">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-        <Link to="/" className="text-2xl font-bold">
-          <img src="logo.png" alt="Mandelbrot Logo" className="w-10 h-10" />
+        <Link to="/" className="flex items-center"> 
+          <img src="/logo.png" alt="Mandelbrot Logo" className="h-12 w-auto md:h-16 lg:h-20" />
         </Link>
         <nav>
           <ul className="flex space-x-4">
