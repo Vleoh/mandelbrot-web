@@ -21,19 +21,21 @@ const App = () => {
   }, [location]);
 
   return (
-    <div className="App">
+    <div className="flex flex-col min-h-screen">
       <Header />
-      <Routes>
-        <Route path="/" element={
-          <>
-            <ServicesCarousel />
-            <CompanyPresentation />
-            <Brands />
-          </>
-        } />
-        <Route path="/contacto" element={<Contacto />} />
-        {/* Agrega aquí más rutas según sea necesario */}
-      </Routes>
+      <main className="flex-grow">
+        <Routes>
+          <Route path="/" element={
+            <>
+              <ServicesCarousel />
+              <CompanyPresentation />
+              <Brands />
+            </>
+          } />
+          <Route path="/contacto" element={<Contacto />} />
+          {/* Agrega aquí más rutas según sea necesario */}
+        </Routes>
+      </main>
       <Footer />
     </div>
   );
