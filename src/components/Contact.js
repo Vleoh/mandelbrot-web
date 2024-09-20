@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import Notificacion from './Notificacion';
 
 const Contacto = () => {
   const [servicio, setServicio] = useState('');
   const [nombre, setNombre] = useState('');
   const [email, setEmail] = useState('');
   const [mensaje, setMensaje] = useState('');
+  const [notificacion, setNotificacion] = useState(null);
   const location = useLocation();
 
   useEffect(() => {
@@ -27,21 +29,19 @@ const Contacto = () => {
         body: JSON.stringify({ nombre, email, servicio, mensaje }),
       });
       
-      const data = await response.json();
-      
       if (response.ok) {
-        alert('Mensaje enviado con éxito');
+        setNotificacion({ mensaje: 'Mensaje enviado con éxito', tipo: 'exito' });
         // Limpiar el formulario
         setNombre('');
         setEmail('');
         setServicio('');
         setMensaje('');
       } else {
-        throw new Error(data.message || 'Error al enviar el mensaje');
+        throw new Error('Error al enviar el mensaje');
       }
     } catch (error) {
       console.error('Error:', error);
-      alert(`Hubo un error al enviar el mensaje: ${error.message}`);
+      setNotificacion({ mensaje: 'Hubo un error al enviar el mensaje', tipo: 'error' });
     }
   };
 
@@ -96,6 +96,13 @@ const Contacto = () => {
           Enviar
         </button>
       </form>
+      {notificacion && (
+        <Notificacion
+          mensaje={notificacion.mensaje}
+          tipo={notificacion.tipo}
+          onClose={() => setNotificacion(null)}
+        />
+      )}
     </div>
   );
 };
