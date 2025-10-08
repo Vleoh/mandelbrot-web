@@ -6,8 +6,6 @@ import SolutionsAI from './components/SolutionsAI';
 import TechStack from './components/TechStack';
 import Process from './components/Process';
 import Testimonials from './components/Testimonials';
-import CompanyPresentation from './components/CompanyPresentation';
-import ServicesCarousel from './components/ServicesCarousel';
 import Brands from './components/Brands';
 import Contacto from './components/Contact';
 import Footer from './components/Footer';
