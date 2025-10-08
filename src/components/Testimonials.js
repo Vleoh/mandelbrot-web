@@ -1,28 +1,24 @@
 import React from 'react';
-// components/Testimonials.js
 
 const Testimonials = () => (
   <section id="testimonials" className="bg-gradient-to-r from-gray-900 via-black to-gray-900 py-16 text-white">
-    <h2 className="text-4xl font-bold text-center mb-8">Lo que Dicen Nuestros Clientes</h2>
-    <div className="flex justify-center gap-8">
-      <div className="bg-gray-800 p-6 rounded-lg w-64">
-        <p>"Excelente servicio, nos ayudaron a optimizar nuestra empresa en tiempo récord."</p>
-        <span className="block text-right mt-4">- Juan Pérez</span>
+    <h2 className="text-4xl font-bold text-center mb-8">Qué dicen nuestros clientes</h2>
+    <div className="flex flex-wrap justify-center gap-6 px-4">
+      <div className="bg-gray-800/70 border border-white/10 p-6 rounded-xl w-72">
+        <p>“Implementamos RAG sobre 200k documentos. Bajamos 40% el TTR del equipo.”</p>
+        <span className="block text-right mt-4 text-white/70">— CX Lead, Retail</span>
       </div>
-      <div className="bg-gray-800 p-6 rounded-lg w-64">
-        <p>"El mejor software que hemos utilizado, superó nuestras expectativas."</p>
-        <span className="block text-right mt-4">- María García</span>
+      <div className="bg-gray-800/70 border border-white/10 p-6 rounded-xl w-72">
+        <p>“Los agentes automatizan tareas operativas. Ahorro de +300 hs/mes.”</p>
+        <span className="block text-right mt-4 text-white/70">— Ops Manager, Logística</span>
       </div>
-      <div className="bg-gray-800 p-6 rounded-lg w-64">
-        <p>"Muy recomendados, soluciones a medida para nuestro negocio."</p>
-        <span className="block text-right mt-4">- Carlos Mendoza</span>
-      </div>
-      <div className="bg-gray-800 p-6 rounded-lg w-64">
-        <p>"Una experiencia increíble, soporte rápido y personalizado."</p>
-        <span className="block text-right mt-4">- Sofía López</span>
+      <div className="bg-gray-800/70 border border-white/10 p-6 rounded-xl w-72">
+        <p>“Great partner. Shipping rápido y foco en métricas de negocio.”</p>
+        <span className="block text-right mt-4 text-white/70">— CTO, SaaS</span>
       </div>
     </div>
   </section>
 );
 
 export default Testimonials;
+

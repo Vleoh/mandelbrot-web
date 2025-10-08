@@ -1,6 +1,11 @@
 import React, { useEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import Header from './components/Header';
+import HeroAI from './components/HeroAI';
+import SolutionsAI from './components/SolutionsAI';
+import TechStack from './components/TechStack';
+import Process from './components/Process';
+import Testimonials from './components/Testimonials';
 import CompanyPresentation from './components/CompanyPresentation';
 import ServicesCarousel from './components/ServicesCarousel';
 import Brands from './components/Brands';
@@ -27,9 +32,12 @@ const App = () => {
         <Routes>
           <Route path="/" element={
             <>
-              <ServicesCarousel />
-              <CompanyPresentation />
+              <HeroAI />
+              <SolutionsAI />
+              <TechStack />
+              <Process />
               <Brands />
+              <Testimonials />
             </>
           } />
           <Route path="/contacto" element={<Contacto />} />
